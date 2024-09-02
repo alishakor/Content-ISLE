@@ -58,3 +58,4 @@ def signup():
         'message': 'User created successfully, check your email for verification code',
         'status': 201
         }), 201
+    

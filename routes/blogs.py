@@ -8,5 +8,5 @@ from config import db, app
 
 @api.route('/blogs', methods=['GET'], strict_slashes=False)
 #@login_required
-def blog():
-    return jsonify({"message": "Blog with me"})
+def blogs():
+    return jsonify({"message": "Share your thoughts"}), 200

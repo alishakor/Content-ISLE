@@ -40,19 +40,19 @@ def forbidden_err(error):
 
 @app.route("/")
 def index():
-    return jsonify({"message": "Hello World"})
+    return jsonify({"message": "Welcome to the Islamic Resource Center"})
 
-@app.route('/send-email')
+@app.route('/send_email')
 def send_email():
     try:
-        msg = Message("Hello from Flask", recipients=["alareefadegbite@gmail.com"])
+        msg = Message("Hello from Flask", recipients=["aliushakor13@gmail.com"])
         msg.body = "This is a test email sent from a Flask application!"
         mail.send(msg)
-        return "Email sent!"
+        return "Email sent!", 200
     except Exception as e:
         app.logger.error(f"Failed to send email: {e}")
         print((f"Failed to send email: {e}"))
-        return "Failed to send email"
+        return "Failed to send email", 500
 
 
 
