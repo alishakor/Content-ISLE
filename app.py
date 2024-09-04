@@ -45,7 +45,8 @@ def index():
 @app.route('/send_email')
 def send_email():
     try:
-        msg = Message("Hello from Flask", recipients=["aliushakor13@gmail.com"])
+        msg = Message("Marhaba bikum. ", 
+                        recipients=["aliushakor13@gmail.com"])
         msg.body = "This is a test email sent from a Flask application!"
         mail.send(msg)
         return "Email sent!", 200
@@ -54,6 +55,7 @@ def send_email():
         print((f"Failed to send email: {e}"))
         return "Failed to send email", 500
 
+# @app.route('/verification')
 
 
 

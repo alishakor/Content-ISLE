@@ -59,3 +59,15 @@ def signup():
         'status': 201
         }), 201
     
+
+@api.route('/verify_user/<string:verification_code>', methods=['POST', 'GET'], strict_slashes=False)
+def verify_user():
+    """Verify the user based on verifiction code provided"""
+    if current_user.is_authenticated:
+        return jsonify({'message': 'User already logged in'}), 400
+    
+    form = request.get_json()
+    if not form:
+        return jsonify({"error": "Not a JSON"})
+    
+    verification = form.get('verification_code')
